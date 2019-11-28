@@ -1,0 +1,29 @@
+{
+  "name": "marvellous",
+  "version": "1.0.0",
+  "description": "Social Platform for Developers",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ma-9/marvellous.git"
+  },
+  "keywords": [
+    "MongoDB",
+    "Express",
+    "React",
+    "Node",
+    "NPM",
+    "Git",
+    "Github",
+    "Heroku"
+  ],
+  "author": "ma-9 (Manav Oza)",
+  "license": "BBS",
+  "bugs": {
+    "url": "https://github.com/ma-9/marvellous/issues"
+  },
+  "homepage": "https://github.com/ma-9/marvellous#readme"
+}
