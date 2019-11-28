@@ -1,5 +1,8 @@
 const router = require('express').Router();
 const { check, validationResult } = require('express-validator');
+const User = require('../../models/User');
+const gravater = require('gravatar');
+const bcrypt = require('bcryptjs');
 
 // @route   POST api/users
 // @desc    test Users
@@ -14,14 +17,52 @@ router.post(
       'Please enter password with 6 or more characters'
     ).isLength({ min: 6 })
   ],
-  (req, res, next) => {
+  async (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      res.json({
+      return res.status(400).json({
         error: errors.array()
       });
-    } else {
-      res.send('User Route');
+    }
+
+    const { name, email, password } = req.body;
+
+    try {
+      // See if User Exists
+      let user = await User.findOne({ email: email });
+
+      if (user) {
+        return res.status(400).json({
+          msg: 'User Already Exists'
+        });
+      }
+
+      // Get Users Gravatar
+      const avatar = gravater.url(email, {
+        s: '200',
+        r: 'pg',
+        d: 'mm'
+      });
+
+      user = new User({
+        name,
+        email,
+        avatar,
+        password
+      });
+
+      // Password Encryption
+      const Salt = await bcrypt.genSalt(10);
+      user.password = await bcrypt.hash(password, Salt);
+
+      await user.save();
+
+      // Return JSON Web Token
+
+      res.send('User Registered');
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send('Server Error');
     }
   }
 );
