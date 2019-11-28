@@ -1,3 +1,4 @@
 {
-  "mongoURL": "mongodb+srv://admin:admin123@protrasys-admin-raot8.mongodb.net/test?retryWrites=true&w=majority"
+  "mongoURL": "mongodb+srv://admin:admin123@protrasys-admin-raot8.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtSecret": "badboysecurities"
 }
