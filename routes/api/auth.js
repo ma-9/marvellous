@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-// @route   api/auth
+// @route   GET api/auth
 // @desc    test auth
 // @access  public
 router.get('/', (req, res, next) => {

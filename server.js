@@ -8,6 +8,13 @@ app.get('/', (req, res, next) => {
   res.send('API Running');
 });
 
+// Declare Middleware
+app.use(
+  express.json({
+    extended: false
+  })
+);
+
 // Database Connection
 connectDB();
 
