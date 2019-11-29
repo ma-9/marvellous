@@ -104,7 +104,7 @@ router.delete('/:post_id', auth, async (req, res) => {
       });
     }
 
-    if (result.user.id === req.user.id) {
+    if (result.user.toString() === req.user.id) {
       return res.status(401).json({ msg: 'User Not Authorized' });
     }
 
@@ -116,6 +116,80 @@ router.delete('/:post_id', auth, async (req, res) => {
     if (err.kind == 'ObjectId') {
       return res.status(404).json({
         msg: 'No Post Available To Delete'
+      });
+    }
+    res.status(500).json({
+      msg: 'SERVER ERROR',
+      error: err.message
+    });
+  }
+});
+
+// @route   PUT api/posts/likes/:post_id
+// @desc    Like a Post
+// @access  Private
+router.put('/likes/:post_id', auth, async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.post_id);
+
+    if (
+      post.likes.filter((like) => like.user.toString() === req.user.id).length >
+      0
+    ) {
+      return res.status(400).json({
+        msg: 'Post Already Liked'
+      });
+    }
+
+    post.likes.unshift({ user: req.user.id });
+
+    await post.save();
+
+    res.json(post.likes);
+  } catch (err) {
+    console.error(err.message);
+    if (err.kind == 'ObjectId') {
+      return res.status(404).json({
+        msg: 'No Post Available To Like'
+      });
+    }
+    res.status(500).json({
+      msg: 'SERVER ERROR',
+      error: err.message
+    });
+  }
+});
+
+// @route   PUT api/posts/unlikes/:post_id
+// @desc    Un Like a Post
+// @access  Private
+router.put('/unlikes/:post_id', auth, async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.post_id);
+
+    if (
+      post.likes.filter((like) => like.user.toString() === req.user.id)
+        .length === 0
+    ) {
+      return res.status(400).json({
+        msg: 'Post has not yet Liked'
+      });
+    }
+
+    const removeIndex = post.likes
+      .map((like) => like.user.toString())
+      .indexOf(req.user.id);
+
+    post.likes.splice(removeIndex, 1);
+
+    await post.save();
+
+    res.json(post.likes);
+  } catch (err) {
+    console.error(err.message);
+    if (err.kind == 'ObjectId') {
+      return res.status(404).json({
+        msg: 'No Post Available To UnLike'
       });
     }
     res.status(500).json({
