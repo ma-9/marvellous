@@ -175,4 +175,34 @@ router.delete('/', auth, async (req, res) => {
   }
 });
 
+// @route   PUT api/profile
+// @desc    Add Profile Experience
+// @access  Public
+router.put('/', auth, async (req, res) => {
+  const { title, company, location, from, to, current, description } = req.body;
+
+  const newExp = {
+    title,
+    company,
+    location,
+    from,
+    to,
+    current,
+    description
+  };
+
+  try {
+    const profile = await Profile.findOne({ user: req.user.id });
+    profile.experience.unshift(newExp);
+    await profile.save();
+    res.json(profile);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).json({
+      msg: 'Server Error',
+      error: err.message
+    });
+  }
+});
+
 module.exports = router;
