@@ -1,4 +1,6 @@
 {
   "mongoURL": "mongodb+srv://admin:admin123@protrasys-admin-raot8.mongodb.net/marvellous?retryWrites=true&w=majority",
-  "jwtSecret": "badboysecurities"
+  "jwtSecret": "badboysecurities",
+  "githubClientId": "042c6a82276a0957d022",
+  "githubSecret": "3e30e59df2e34cdadabf17e4e8351b2d31ef4b12"
 }
