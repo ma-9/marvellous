@@ -1,0 +1,32 @@
+{
+  "name": "marvellous",
+  "version": "1.0.0",
+  "description": "Blogging Platform For Developers",
+  "main": "index.js",
+  "scripts": {
+    "client": "npm start --prefix frontend",
+    "server": "npm start --prefix backend",
+    "server_local": "npm run server --prefix backend",
+    "start": "concurrently \"npm run client\" \"npm run server\"",
+    "dev": "concurrently \"npm run client\" \"npm run server_local\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ma-9/marvellous.git"
+  },
+  "keywords": [
+    "reactjs",
+    "nodejs",
+    "mern-stack",
+    "marvellous"
+  ],
+  "author": "Manav Oza",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ma-9/marvellous/issues"
+  },
+  "homepage": "https://github.com/ma-9/marvellous#readme",
+  "dependencies": {
+    "concurrently": "^5.0.0"
+  }
+}

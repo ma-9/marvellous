@@ -1,7 +1,7 @@
 {
-  "name": "marvellous",
+  "name": "marvellous-backend",
   "version": "1.0.0",
-  "description": "Social Platform for Developers",
+  "description": "Blogging Platform for Developers",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -40,5 +40,8 @@
   "devDependencies": {
     "concurrently": "^5.0.0",
     "nodemon": "^2.0.1"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   }
 }
