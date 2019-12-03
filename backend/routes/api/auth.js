@@ -22,65 +22,51 @@ router.get('/', auth, async (req, res, next) => {
 // @route   POST api/auth
 // @desc    Logging in to get Token
 // @access  public
-router.post(
-  '/',
-  [
-    check('email', 'Invalid Email').isEmail(),
-    check('password', 'Password is Required').exists()
-  ],
-  async (req, res, next) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(400).json({
-        error: errors.array()
-      });
+router.post('/', async (req, res, next) => {
+  const { email, password } = req.body;
+
+  try {
+    // See if User Exists
+    let user = await User.findOne({ email: email });
+
+    if (!user) {
+      return res.status(400).json([
+        {
+          msg: 'Invalid Credentials'
+        }
+      ]);
     }
 
-    const { email, password } = req.body;
+    const isMatched = await bcrypt.compare(password, user.password);
 
-    try {
-      // See if User Exists
-      let user = await User.findOne({ email: email });
-
-      if (!user) {
-        return res.status(400).json([
-          {
-            msg: 'Invalid Credentials'
-          }
-        ]);
-      }
-
-      const isMatched = await bcrypt.compare(password, user.password);
-
-      if (!isMatched) {
-        return res.status(400).json([
-          {
-            msg: 'Invalid Credentials'
-          }
-        ]);
-      }
-
-      // Return JSON Web Token
-      const payload = {
-        user: {
-          id: user.id
+    if (!isMatched) {
+      return res.status(400).json([
+        {
+          msg: 'Invalid Credentials'
         }
-      };
-
-      jwt.sign(
-        payload,
-        config.get('jwtSecret'),
-        { expiresIn: 3600 },
-        (err, token) => {
-          if (err) throw err;
-          res.json({ token });
-        }
-      );
-    } catch (err) {
-      console.error(err.message);
-      res.status(500).send('Server Error');
+      ]);
     }
+
+    // Return JSON Web Token
+    const payload = {
+      user: {
+        id: user.id
+      }
+    };
+
+    jwt.sign(
+      payload,
+      config.get('jwtSecret'),
+      { expiresIn: 3600 },
+      (err, token) => {
+        if (err) throw err;
+        res.json({ token });
+      }
+    );
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
   }
-);
+});
 
 module.exports = router;

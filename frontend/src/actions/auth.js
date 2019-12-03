@@ -77,11 +77,11 @@ export const login = ({ email, password }) => async (dispatch) => {
     dispatch(loadUser());
     dispatch(setAlert('User Logged in', 'success'));
   } catch (err) {
-    const errors = err.response.data.error;
+    const errors = err.response.data[0];
     if (errors) {
-      errors.forEach((error) => dispatch(setAlert(error.msg, 'danger')));
+      dispatch(setAlert(errors.msg, 'danger'));
     }
-    // console.log(err.response.data.error);
+    console.log(err.response.data[0].msg);
     dispatch({
       type: LOGIN_FAIL
     });

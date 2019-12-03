@@ -23,12 +23,12 @@ const Login = ({ login, isAuthenticated }) => {
     event.preventDefault();
     login({ email, password });
     setFormData({
-      password: '',
+      password: ''
     });
   };
 
-  if(isAuthenticated){
-    return <Redirect to="/dashboard" />
+  if (isAuthenticated) {
+    return <Redirect to='/dashboard' />;
   }
 
   return (
