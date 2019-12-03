@@ -4,7 +4,8 @@ import {
   USER_LOADED,
   AUTH_ERROR,
   LOGIN_SUCCESS,
-  LOGIN_FAIL
+  LOGIN_FAIL,
+  LOGOUT
 } from '../actions/types';
 import axios from 'axios';
 import { setAlert } from './alert';
@@ -81,9 +82,14 @@ export const login = ({ email, password }) => async (dispatch) => {
     if (errors) {
       dispatch(setAlert(errors.msg, 'danger'));
     }
-    console.log(err.response.data[0].msg);
+    // console.log(err.response.data[0].msg);
     dispatch({
       type: LOGIN_FAIL
     });
   }
+};
+
+// Logout / Clear Profile
+export const logout = () => (dispatch) => {
+  dispatch({ type: LOGOUT });
 };

@@ -23,6 +23,7 @@ const Login = ({ login, isAuthenticated }) => {
     event.preventDefault();
     login({ email, password });
     setFormData({
+      email: '',
       password: ''
     });
   };
