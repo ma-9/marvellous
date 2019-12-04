@@ -272,20 +272,25 @@ button {
   width: 4rem;
 }
 
-.form .social-input i.fa-twitter {
+.form .social-input .fa-twitter {
   color: #38a1f3;
+  margin-right: 1rem;
 }
-.form .social-input i.fa-facebook {
+.form .social-input .fa-facebook {
   color: #3b5998;
+  margin-right: 1rem;
 }
-.form .social-input i.fa-instagram {
-  color: #3f729b;
+.form .social-input .fa-instagram {
+  color: #fb3958;
+  margin-right: 1rem;
 }
-.form .social-input i.fa-youtube {
+.form .social-input .fa-youtube {
   color: #c4302b;
+  margin-right: 1rem;
 }
-.form .social-input i.fa-linkedin {
+.form .social-input .fa-linkedin {
   color: #0077b5;
+  margin-right: 1rem;
 }
 
 .table th,
