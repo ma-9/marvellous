@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/ma-9/marvellous#readme",
   "dependencies": {
-    "concurrently": "^5.0.0"
+    "concurrently": "^5.0.0",
+    "react-loading": "^2.0.3"
   }
 }
