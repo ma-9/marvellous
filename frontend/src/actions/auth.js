@@ -48,11 +48,11 @@ export const register = ({ name, email, password }) => async (dispatch) => {
       payload: res.data
     });
     dispatch(loadUser());
-    dispatch(setAlert('User Created', 'success'));
+    dispatch(setAlert('User Created Successfully', 'success', 2000));
   } catch (err) {
     const errors = err.response.data.error;
     if (errors) {
-      errors.forEach((error) => dispatch(setAlert(error.msg, 'danger')));
+      errors.forEach((error) => dispatch(setAlert(error.msg, 'danger', 5000)));
     }
     // console.log(err.response.data.error);
     dispatch({
@@ -77,11 +77,11 @@ export const login = ({ email, password }) => async (dispatch) => {
       payload: res.data
     });
     dispatch(loadUser());
-    dispatch(setAlert('User Logged in', 'success'));
+    dispatch(setAlert('User Logged in', 'success', 1000));
   } catch (err) {
     const errors = err.response.data[0];
     if (errors) {
-      dispatch(setAlert(errors.msg, 'danger'));
+      dispatch(setAlert(errors.msg, 'danger', 5000));
     }
     // console.log(err.response.data[0].msg);
     dispatch({
@@ -94,4 +94,5 @@ export const login = ({ email, password }) => async (dispatch) => {
 export const logout = () => (dispatch) => {
   dispatch({ type: LOGOUT });
   dispatch({ type: CLEAR_PROFILE });
+  dispatch(setAlert('Logout Successfully', 'primary', 1000));
 };
