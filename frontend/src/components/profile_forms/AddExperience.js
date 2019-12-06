@@ -15,15 +15,7 @@ const AddExperience = ({ addExperience, history }) => {
     description: ''
   });
 
-  const {
-    title,
-    company,
-    location,
-    from: from,
-    to,
-    current,
-    description
-  } = formData;
+  const { title, company, location, from, to, current, description } = formData;
 
   const onChange = (e) =>
     setFormData({

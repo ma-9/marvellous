@@ -3,19 +3,22 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from '../../actions/auth';
+import PersonIcon from '@material-ui/icons/Person';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import DeveloperModeIcon from '@material-ui/icons/DeveloperMode';
 
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const authLinks = (
     <ul>
       <li>
-        <Link to='/dashboard'>
-          <i className='fas fa-user'></i>{' '}
+        <Link to='/dashboard' style={{ display: 'flex' }}>
+          <PersonIcon />
           <span className='hide-sm'>Dashboard</span>
         </Link>
       </li>
       <li>
-        <a onClick={logout} href='#!'>
-          <i className='fas fa-sign-out-alt'></i>{' '}
+        <a onClick={logout} href='#!' style={{ display: 'flex' }}>
+          <ExitToAppIcon />
           <span className='hide-sm'>Logout</span>
         </a>
       </li>
@@ -40,7 +43,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     <li className='navbar bg-dark'>
       <h1>
         <Link to='/'>
-          <i className='fas fa-code'></i> Marvellous IN
+          <DeveloperModeIcon /> Marvellous IN
         </Link>
       </h1>
       {!loading && (
@@ -60,3 +63,6 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, { logout })(Navbar);
+
+// <i className='fas fa-user'></i>
+//<i className='fas fa-sign-out-alt'></i>

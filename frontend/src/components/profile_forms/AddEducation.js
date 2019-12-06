@@ -19,7 +19,7 @@ const AddEducation = ({ addEducation, history }) => {
     school,
     degree,
     fieldofstudy,
-    from: from,
+    from,
     to,
     current,
     description
