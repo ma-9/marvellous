@@ -78,7 +78,7 @@ export const addExperience = (formData, history) => async (dispatch) => {
       payload: res.data
     });
 
-    dispatch(setAlert('Experience Updated', 'primary', 1500));
+    dispatch(setAlert('Experience Updated', 'success', 1500));
 
     history.push('/dashboard');
   } catch (err) {
@@ -114,7 +114,7 @@ export const addEducation = (formData, history) => async (dispatch) => {
       payload: res.data
     });
 
-    dispatch(setAlert('Education Updated', 'primary', 1500));
+    dispatch(setAlert('Education Updated', 'success', 1500));
 
     history.push('/dashboard');
   } catch (err) {
