@@ -37,18 +37,17 @@ export const createProfile = (formData, history, edit = false) => async (
       payload: res.data
     });
 
-    const profileUpdated = '"Profile Updated","success",1500';
-    const profileCreated = '"Profile Created","primary",1500';
+    dispatch(
+      setAlert(edit ? 'Profile Updated' : 'Profile Created', true, 1500)
+    );
 
-    dispatch(setAlert(edit ? profileUpdated : profileCreated));
-
-    if (!edit) {
-      history.push('/dashboard');
-    }
+    history.push('/dashboard');
+    // if (!edit) {
+    // }
   } catch (err) {
     const errors = err.response.data.errors;
     if (errors) {
-      errors.forEach((error) => dispatch(setAlert(error.msg, 'danger', 5000)));
+      errors.forEach((error) => dispatch(setAlert(error.msg, false, 5000)));
     }
 
     // console.log(err.response.data.errors);
@@ -78,13 +77,13 @@ export const addExperience = (formData, history) => async (dispatch) => {
       payload: res.data
     });
 
-    dispatch(setAlert('Experience Updated', 'success', 1500));
+    dispatch(setAlert('Experience Updated', true, 1500));
 
     history.push('/dashboard');
   } catch (err) {
     const errors = err.response.data.errors;
     if (errors) {
-      errors.forEach((error) => dispatch(setAlert(error.msg, 'danger', 5000)));
+      errors.forEach((error) => dispatch(setAlert(error.msg, false, 5000)));
     }
 
     // console.log(err.response.data.errors);
@@ -114,13 +113,13 @@ export const addEducation = (formData, history) => async (dispatch) => {
       payload: res.data
     });
 
-    dispatch(setAlert('Education Updated', 'success', 1500));
+    dispatch(setAlert('Education Updated', true, 1500));
 
     history.push('/dashboard');
   } catch (err) {
     const errors = err.response.data.errors;
     if (errors) {
-      errors.forEach((error) => dispatch(setAlert(error.msg, 'danger', 5000)));
+      errors.forEach((error) => dispatch(setAlert(error.msg, false, 5000)));
     }
 
     // console.log(err.response.data.errors);

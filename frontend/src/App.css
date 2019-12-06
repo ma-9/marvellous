@@ -7,6 +7,46 @@
   --success-color: #28a745;
 }
 
+/* NAVBAR CSS */
+
+.MuiToolbar-regular {
+  min-height: 50px !important;
+}
+
+.MuiToolbar-gutters {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.MuiToolbar-root {
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+
+.MuiAppBar-colorPrimary {
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.7) !important;
+}
+
+.MuiPaper-root {
+  color: rgba(0, 0, 0, 0.87);
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  background-color: #fff;
+}
+
+.makeStyles-root-1 {
+  user-select: none;
+}
+
+.NavbarLinks {
+  justify-content: right !important;
+  text-align: right !important;
+  align-items: right !important;
+}
+
+/* NAVBAR CSS */
+
 * {
   box-sizing: border-box;
   margin: 0;

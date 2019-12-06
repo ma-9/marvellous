@@ -48,11 +48,11 @@ export const register = ({ name, email, password }) => async (dispatch) => {
       payload: res.data
     });
     dispatch(loadUser());
-    dispatch(setAlert('User Created Successfully', 'success', 2000));
+    dispatch(setAlert('User Created Successfully', true, 2000));
   } catch (err) {
     const errors = err.response.data.error;
     if (errors) {
-      errors.forEach((error) => dispatch(setAlert(error.msg, 'danger', 5000)));
+      errors.forEach((error) => dispatch(setAlert(error.msg, false, 5000)));
     }
     // console.log(err.response.data.error);
     dispatch({
@@ -77,11 +77,11 @@ export const login = ({ email, password }) => async (dispatch) => {
       payload: res.data
     });
     dispatch(loadUser());
-    dispatch(setAlert('User Logged in', 'success', 1000));
+    dispatch(setAlert('User Logged in', true, 1000));
   } catch (err) {
     const errors = err.response.data[0];
     if (errors) {
-      dispatch(setAlert(errors.msg, 'danger', 5000));
+      dispatch(setAlert(errors.msg, false, 5000));
     }
     // console.log(err.response.data[0].msg);
     dispatch({
@@ -94,5 +94,5 @@ export const login = ({ email, password }) => async (dispatch) => {
 export const logout = () => (dispatch) => {
   dispatch({ type: LOGOUT });
   dispatch({ type: CLEAR_PROFILE });
-  dispatch(setAlert('Logout Successfully', 'primary', 1000));
+  dispatch(setAlert('Logout Successfully', true, 1500));
 };

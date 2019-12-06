@@ -1,3 +1,44 @@
+// import React, { Fragment } from 'react';
+// import { Link } from 'react-router-dom';
+// import { connect } from 'react-redux';
+// import PropTypes from 'prop-types';
+// import { logout } from '../../actions/auth';
+// import PersonIcon from '@material-ui/icons/Person';
+// import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+// import DeveloperModeIcon from '@material-ui/icons/DeveloperMode';
+// import { makeStyles } from '@material-ui/core/styles';
+// import AppBar from '@material-ui/core/AppBar';
+// import Toolbar from '@material-ui/core/Toolbar';
+// import Typography from '@material-ui/core/Typography';
+// import Button from '@material-ui/core/Button';
+// import IconButton from '@material-ui/core/IconButton';
+// import MenuIcon from '@material-ui/icons/Menu';
+// import { flexbox, borderRight } from '@material-ui/system';
+
+// const useStyles = makeStyles((theme) => ({
+//   root: {
+//     userSelect: 'none'
+//   }
+// }));
+
+// const Navbar = () => {
+//   const classes = useStyles();
+
+//   return (
+//     <div className={classes.root}>
+//       <AppBar position='fixed'>
+//         <Toolbar className='NavbarLinks'>
+//           <Button color='inherit' className='NavbarLinks'>
+//             Login
+//           </Button>
+//         </Toolbar>
+//       </AppBar>
+//     </div>
+//   );
+// };
+
+// export default Navbar;
+
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -63,6 +104,3 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, { logout })(Navbar);
-
-// <i className='fas fa-user'></i>
-//<i className='fas fa-sign-out-alt'></i>
