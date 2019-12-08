@@ -16,7 +16,6 @@ import store from './store';
 import Alert from './components/layouts/Alert';
 import { loadUser } from './actions/auth';
 import setAuthToken from './utils/setAuthToken';
-import img from './img/showcase.jpg';
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);

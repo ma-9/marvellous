@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { Fragment, useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import Box from '@material-ui/core/Box';
 
 const Landing = ({ isAuthenticated }) => {
   if (isAuthenticated) {
@@ -9,25 +12,36 @@ const Landing = ({ isAuthenticated }) => {
   }
 
   return (
-    <section className='landing'>
-      <div className='dark-overlay'>
-        <div className='landing-inner'>
-          <h1 className='x-large'>Marvellous - A Blogging Platform</h1>
-          <p className='lead'>
+    <Fragment>
+      <Box component='div' className='dark-overlay'>
+        <Box component='div' className='landing-inner'>
+          <Typography variant='h2' gutterBottom>
+            Marvellous - A Blogging Platform
+          </Typography>
+          <Typography variant='h6' gutterBottom>
             Create a developer profile, share blogs/posts and get help from
             other developers
-          </p>
-          <div className='buttons'>
-            <Link to='/register' className='btn btn-primary'>
-              Sign Up
+          </Typography>
+          <Box component='div'>
+            <Link to='/register'>
+              <Button
+                variant='contained'
+                style={{
+                  backgroundColor: '#240b36',
+                  color: '#fff',
+                  marginRight: '20px'
+                }}
+              >
+                Sign Up
+              </Button>
             </Link>
-            <Link to='/login' className='btn btn-light'>
-              Login
+            <Link to='/login'>
+              <Button variant='contained'>Sign In</Button>
             </Link>
-          </div>
-        </div>
-      </div>
-    </section>
+          </Box>
+        </Box>
+      </Box>
+    </Fragment>
   );
 };
 
