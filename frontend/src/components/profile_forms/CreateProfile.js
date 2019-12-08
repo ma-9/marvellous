@@ -3,6 +3,11 @@ import { Link, withRouter } from 'react-router-dom';
 import { createProfile } from '../../actions/profile';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import TwitterIcon from '@material-ui/icons/Twitter';
+import InstagramIcon from '@material-ui/icons/Instagram';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import FacebookIcon from '@material-ui/icons/Facebook';
+import YouTubeIcon from '@material-ui/icons/YouTube';
 
 const CreateProfile = ({ createProfile, history }) => {
   const [formData, setFormData] = useState({
@@ -162,7 +167,7 @@ const CreateProfile = ({ createProfile, history }) => {
         {displaySocialLinks && (
           <Fragment>
             <div className='form-group social-input'>
-              <i className='fab fa-twitter fa-2x'></i>
+              <TwitterIcon fontSize='large' color='primary' />
               <input
                 type='text'
                 placeholder='Twitter URL'
@@ -173,7 +178,7 @@ const CreateProfile = ({ createProfile, history }) => {
             </div>
 
             <div className='form-group social-input'>
-              <i className='fab fa-facebook fa-2x'></i>
+              <FacebookIcon fontSize='large' color='primary' />
               <input
                 type='text'
                 placeholder='Facebook URL'
@@ -184,7 +189,7 @@ const CreateProfile = ({ createProfile, history }) => {
             </div>
 
             <div className='form-group social-input'>
-              <i className='fab fa-youtube fa-2x'></i>
+              <YouTubeIcon fontSize='large' color='error' />
               <input
                 type='text'
                 placeholder='YouTube URL'
@@ -195,7 +200,7 @@ const CreateProfile = ({ createProfile, history }) => {
             </div>
 
             <div className='form-group social-input'>
-              <i className='fab fa-linkedin fa-2x'></i>
+              <LinkedInIcon fontSize='large' color='primary' />
               <input
                 type='text'
                 placeholder='Linkedin URL'
@@ -206,7 +211,7 @@ const CreateProfile = ({ createProfile, history }) => {
             </div>
 
             <div className='form-group social-input'>
-              <i className='fab fa-instagram fa-2x'></i>
+              <InstagramIcon fontSize='large' color='secondary' />
               <input
                 type='text'
                 placeholder='Instagram URL'

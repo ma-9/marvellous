@@ -86,22 +86,20 @@ const ProfileSchema = new mongoose.Schema({
       }
     }
   ],
-  social: {
-    youtube: {
-      type: mongoose.Schema.Types.String
-    },
-    twitter: {
-      type: mongoose.Schema.Types.String
-    },
-    facebook: {
-      type: mongoose.Schema.Types.String
-    },
-    linkedin: {
-      type: mongoose.Schema.Types.String
-    },
-    instagram: {
-      type: mongoose.Schema.Types.String
-    }
+  youtube: {
+    type: mongoose.Schema.Types.String
+  },
+  twitter: {
+    type: mongoose.Schema.Types.String
+  },
+  facebook: {
+    type: mongoose.Schema.Types.String
+  },
+  linkedin: {
+    type: mongoose.Schema.Types.String
+  },
+  instagram: {
+    type: mongoose.Schema.Types.String
   },
   date: {
     type: mongoose.Schema.Types.Date,

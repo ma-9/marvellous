@@ -3,6 +3,11 @@ import { Link, withRouter } from 'react-router-dom';
 import { createProfile, getCurrentProfile } from '../../actions/profile';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import TwitterIcon from '@material-ui/icons/Twitter';
+import InstagramIcon from '@material-ui/icons/Instagram';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import FacebookIcon from '@material-ui/icons/Facebook';
+import YouTubeIcon from '@material-ui/icons/YouTube';
 
 const EditProfile = ({
   createProfile,
@@ -54,11 +59,11 @@ const EditProfile = ({
       githubusername:
         loading || !profile.githubusername ? '' : profile.githubusername,
       bio: loading || !profile.bio ? '' : profile.bio,
-      twitter: loading || !profile.social ? '' : profile.social.twitter,
-      facebook: loading || !profile.social ? '' : profile.social.facebook,
-      instagram: loading || !profile.social ? '' : profile.social.instagram,
-      linkedin: loading || !profile.social ? '' : profile.social.linkedin,
-      youtube: loading || !profile.social ? '' : profile.social.youtube
+      twitter: loading || !profile.twitter ? '' : profile.twitter,
+      facebook: loading || !profile.facebook ? '' : profile.facebook,
+      instagram: loading || !profile.instagram ? '' : profile.instagram,
+      linkedin: loading || !profile.linkedin ? '' : profile.linkedin,
+      youtube: loading || !profile.youtube ? '' : profile.youtube
     });
   }, [loading]);
 
@@ -187,7 +192,7 @@ const EditProfile = ({
         {displaySocialLinks && (
           <Fragment>
             <div className='form-group social-input'>
-              <i className='fab fa-twitter fa-2x'></i>
+              <TwitterIcon fontSize='large' color='primary' />
               <input
                 type='text'
                 placeholder='Twitter URL'
@@ -198,7 +203,7 @@ const EditProfile = ({
             </div>
 
             <div className='form-group social-input'>
-              <i className='fab fa-facebook fa-2x'></i>
+              <FacebookIcon fontSize='large' color='primary' />
               <input
                 type='text'
                 placeholder='Facebook URL'
@@ -209,7 +214,7 @@ const EditProfile = ({
             </div>
 
             <div className='form-group social-input'>
-              <i className='fab fa-youtube fa-2x'></i>
+              <YouTubeIcon fontSize='large' color='error' />
               <input
                 type='text'
                 placeholder='YouTube URL'
@@ -220,7 +225,7 @@ const EditProfile = ({
             </div>
 
             <div className='form-group social-input'>
-              <i className='fab fa-linkedin fa-2x'></i>
+              <LinkedInIcon fontSize='large' color='primary' />
               <input
                 type='text'
                 placeholder='Linkedin URL'
@@ -231,7 +236,7 @@ const EditProfile = ({
             </div>
 
             <div className='form-group social-input'>
-              <i className='fab fa-instagram fa-2x'></i>
+              <InstagramIcon fontSize='large' color='secondary' />
               <input
                 type='text'
                 placeholder='Instagram URL'
