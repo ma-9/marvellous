@@ -7,9 +7,11 @@ import Spinner from '../layouts/Spinner';
 import DashboardActionsButton from './DashboardActions';
 import Experience from './Experience';
 import Education from './Education';
+import { deleteAccount } from '../../actions/profile';
 
 const Dashboard = ({
   getCurrentProfile,
+  deleteAccount,
   auth: { user },
   profile: { profile, loading }
 }) => {
@@ -31,6 +33,15 @@ const Dashboard = ({
             <DashboardActionsButton />
             <Experience experience={profile.experience} />
             <Education education={profile.education} />
+            <br />
+            <div className='my-2'>
+              <button
+                onClick={() => deleteAccount()}
+                className='btn btn-danger'
+              >
+                Delete Account Permanently
+              </button>
+            </div>
           </Fragment>
         ) : (
           <Fragment>
@@ -39,6 +50,14 @@ const Dashboard = ({
             <Link to='/create-profile' className='btn btn-primary my-1'>
               Create Profile
             </Link>
+            <div className='my-2'>
+              <button
+                onClick={() => deleteAccount()}
+                className='btn btn-danger'
+              >
+                Delete Account Permanently
+              </button>
+            </div>
           </Fragment>
         )}
       </div>
@@ -49,7 +68,8 @@ const Dashboard = ({
 Dashboard.propTypes = {
   auth: PropTypes.object.isRequired,
   profile: PropTypes.object.isRequired,
-  getCurrentProfile: PropTypes.func.isRequired
+  getCurrentProfile: PropTypes.func.isRequired,
+  deleteAccount: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => ({
@@ -57,4 +77,6 @@ const mapStateToProps = (state) => ({
   profile: state.profile
 });
 
-export default connect(mapStateToProps, { getCurrentProfile })(Dashboard);
+export default connect(mapStateToProps, { getCurrentProfile, deleteAccount })(
+  Dashboard
+);

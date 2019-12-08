@@ -160,7 +160,7 @@ router.get('/:user_id', async (req, res) => {
 
 // @route   DELETE api/profile
 // @desc    Delete User with Profile and Posts
-// @access  Public
+// @access  Private
 router.delete('/', auth, async (req, res) => {
   try {
     await User.findOneAndRemove({ _id: req.user.id });
@@ -232,7 +232,7 @@ router.put(
 );
 
 // @route   DELETE api/profile/:exp_id
-// @desc    Delete Profile Experience Using Exp ID
+// @desc    Delete Experience Using Exp ID
 // @access  Public
 router.delete('/experience/:exp_id', auth, async (req, res) => {
   try {
@@ -309,7 +309,7 @@ router.put(
 );
 
 // @route   DELETE api/profile/:edu_id
-// @desc    Delete Profile Education Using Edu ID
+// @desc    Delete Education Using Edu ID
 // @access  Public
 router.delete('/education/:edu_id', auth, async (req, res) => {
   try {
