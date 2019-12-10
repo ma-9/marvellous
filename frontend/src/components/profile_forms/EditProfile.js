@@ -65,7 +65,7 @@ const EditProfile = ({
       linkedin: loading || !profile.linkedin ? '' : profile.linkedin,
       youtube: loading || !profile.youtube ? '' : profile.youtube
     });
-  }, [loading]);
+  }, [loading, getCurrentProfile]);
 
   const onSubmit = (e) => {
     e.preventDefault();
