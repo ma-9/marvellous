@@ -4,7 +4,8 @@ import {
   GET_PROFILE,
   PROFILE_ERROR,
   UPDATE_PROFILE,
-  ACCOUNT_DELETED
+  ACCOUNT_DELETED,
+  CLEAR_PROFILE
 } from './types';
 
 // Get Current Profile
@@ -204,10 +205,10 @@ export const deleteAccount = () => async (dispatch) => {
   ) {
     try {
       const res = await axios.delete('/api/profile');
-      dispatch({ type: UPDATE_PROFILE });
+      dispatch({ type: CLEAR_PROFILE });
       dispatch({ type: ACCOUNT_DELETED });
 
-      dispatch(setAlert('Account Deleted Permanently', 1500));
+      dispatch(setAlert('Account Deleted Permanently', true, 3500));
     } catch (err) {
       const errors = err.response.data.errors;
       if (errors) {
