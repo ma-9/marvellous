@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Spinner from '../layouts/Spinner';
 import { getProfileByID } from '../../actions/profile';
+import { Link } from 'react-router-dom';
 
 const Profile = ({
   match,
@@ -12,8 +13,29 @@ const Profile = ({
 }) => {
   useEffect(() => {
     getProfileByID(match.params.id);
-  }, [getProfileByID]);
-  return <div>Profile ID = {match.params.id} </div>;
+  }, [getProfileByID, match.params.id]);
+  return (
+    <Fragment>
+      {profile === null || loading ? (
+        <Spinner />
+      ) : (
+        <Fragment>
+          <Link to='/profiles' className='btn btn-light'>
+            Back to Techies
+          </Link>
+          {auth.isAuthenticated &&
+            auth.loading === false &&
+            auth.user._id === profile.user._id && (
+              <Fragment>
+                <Link to='/edit-profile' className='btn btn-dark'>
+                  Edit Profile
+                </Link>
+              </Fragment>
+            )}
+        </Fragment>
+      )}
+    </Fragment>
+  );
 };
 
 Profile.propTypes = {
