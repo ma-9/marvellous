@@ -43,6 +43,8 @@ const Dashboard = ({
               </button>
             </div>
           </Fragment>
+        ) : profile == null ? (
+          <Spinner />
         ) : (
           <Fragment>
             You have not setup Profile yet, Please add some info
