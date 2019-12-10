@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Spinner from '../layouts/Spinner';
 import { getProfileByID } from '../../actions/profile';
 import { Link } from 'react-router-dom';
+import ProfileTop from './ProfileTop';
 
 const Profile = ({
   match,
@@ -32,6 +33,9 @@ const Profile = ({
                 </Link>
               </Fragment>
             )}
+          <div className='profile-grid my-1'>
+            <ProfileTop profile={profile} />
+          </div>
         </Fragment>
       )}
     </Fragment>

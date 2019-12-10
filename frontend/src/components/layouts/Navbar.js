@@ -47,7 +47,12 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
           Dashboard
         </Button>
       </Link>
-      <a onClick={logout} href='#!' style={{ color: 'white', display: 'flex' }}>
+      <a
+        onClick={logout}
+        href='#!'
+        rel='noopener noreferrer'
+        style={{ color: 'white', display: 'flex' }}
+      >
         <Button className={classes.whiteColor}>
           <ExitToAppIcon />
           Logout

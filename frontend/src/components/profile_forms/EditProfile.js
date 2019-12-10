@@ -8,7 +8,6 @@ import InstagramIcon from '@material-ui/icons/Instagram';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import YouTubeIcon from '@material-ui/icons/YouTube';
-
 const EditProfile = ({
   createProfile,
   history,
@@ -23,6 +22,7 @@ const EditProfile = ({
     skills: '',
     githubusername: '',
     bio: '',
+    github: '',
     twitter: '',
     instagram: '',
     facebook: '',
