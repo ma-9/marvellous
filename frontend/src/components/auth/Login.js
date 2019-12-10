@@ -23,10 +23,6 @@ const Login = ({ login, isAuthenticated }) => {
   const onSubmit = (event) => {
     event.preventDefault();
     login({ email, password });
-    setFormData({
-      email: '',
-      password: ''
-    });
   };
 
   if (isAuthenticated) {

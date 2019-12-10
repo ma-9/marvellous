@@ -92,7 +92,11 @@ export const login = ({ email, password }) => async (dispatch) => {
 
 // Logout / Clear Profile
 export const logout = () => (dispatch) => {
-  dispatch({ type: LOGOUT });
-  dispatch({ type: CLEAR_PROFILE });
-  dispatch(setAlert('Logout Successfully', true, 1500));
+  try {
+    dispatch({ type: LOGOUT });
+    dispatch({ type: CLEAR_PROFILE });
+    dispatch(setAlert('Logout Successfully', true, 1500));
+  } catch (error) {
+    dispatch(setAlert(error, false, 5000));
+  }
 };
