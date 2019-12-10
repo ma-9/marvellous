@@ -11,6 +11,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import Techies from '@material-ui/icons/People';
 import IconButton from '@material-ui/core/IconButton';
 
 const useStyles = makeStyles((theme) => ({
@@ -35,7 +36,10 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const authLinks = (
     <div style={{ display: 'flex' }}>
       <Link to='/profiles'>
-        <Button className={classes.whiteColor}>Developers</Button>
+        <Button className={classes.whiteColor}>
+          <Techies className={classes.whiteColor} />
+          Techies
+        </Button>
       </Link>
       <Link to='/dashboard'>
         <Button className={classes.whiteColor}>
@@ -55,7 +59,10 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const guestLinks = (
     <div>
       <Link to='/profiles'>
-        <Button className={classes.whiteColor}>Developers</Button>
+        <Button className={classes.whiteColor}>
+          <Techies className={classes.whiteColor} />
+          Techies
+        </Button>
       </Link>
       <Link to='/register'>
         <Button className={classes.whiteColor}>Register</Button>
