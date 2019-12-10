@@ -34,6 +34,9 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 
   const authLinks = (
     <div style={{ display: 'flex' }}>
+      <Link to='/profiles'>
+        <Button className={classes.whiteColor}>Developers</Button>
+      </Link>
       <Link to='/dashboard'>
         <Button className={classes.whiteColor}>
           <PersonIcon className={classes.whiteColor} />
@@ -51,7 +54,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 
   const guestLinks = (
     <div>
-      <Link to='/'>
+      <Link to='/profiles'>
         <Button className={classes.whiteColor}>Developers</Button>
       </Link>
       <Link to='/register'>
