@@ -8,6 +8,7 @@ import ProfileTop from './ProfileTop';
 import ProfileAbout from './ProfileAbout';
 import ProfileExperience from './ProfileExperience';
 import ProfileEducation from './ProfileEducation';
+import ProfileGIthub from './ProfileGithub';
 
 const Profile = ({
   match,
@@ -67,6 +68,9 @@ const Profile = ({
                 </Fragment>
               )}
             </div>
+            {profile.githubusername && (
+              <ProfileGIthub username={profile.githubusername} />
+            )}
           </div>
         </Fragment>
       )}
