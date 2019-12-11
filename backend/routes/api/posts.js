@@ -104,7 +104,7 @@ router.delete('/:post_id', auth, async (req, res) => {
       });
     }
 
-    if (result.user.toString() === req.user.id) {
+    if (result.user._id === req.user.id) {
       return res.status(401).json({ msg: 'User Not Authorized' });
     }
 
