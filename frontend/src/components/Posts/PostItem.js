@@ -6,8 +6,11 @@ import Moment from 'react-moment';
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import ThumbDownIcon from '@material-ui/icons/ThumbDown';
 import CloseIcon from '@material-ui/icons/Delete';
+import { addLike, removeLike } from '../../actions/post';
 
 const PostItem = ({
+  addLike,
+  removeLike,
   auth,
   post: { _id, name, text, avatar, user, likes, comments, date }
 }) => {
@@ -28,11 +31,21 @@ const PostItem = ({
           id='PostActionButton'
           style={{ display: 'flex', justifyContent: 'flex-end' }}
         >
-          <button type='button' className='btn btn-light'>
+          <button
+            style={{ display: 'flex', alignContent: 'center' }}
+            type='button'
+            className='btn btn-light'
+            onClick={() => addLike(_id)}
+          >
             <ThumbUpIcon />
             {likes.length > 0 && <span>{likes.length}</span>}
           </button>
-          <button type='button' className='btn btn-light'>
+          <button
+            style={{ display: 'flex', alignContent: 'center' }}
+            type='button'
+            className='btn btn-light'
+            onClick={() => removeLike(_id)}
+          >
             <ThumbDownIcon />
           </button>
           <Link to={`/post/${_id}`} className='btn btn-primary'>
@@ -42,7 +55,11 @@ const PostItem = ({
             )}
           </Link>
           {!auth.loading && user === auth.user._id && (
-            <button type='button' className='btn btn-danger'>
+            <button
+              style={{ display: 'flex', alignContent: 'center' }}
+              type='button'
+              className='btn btn-danger'
+            >
               <CloseIcon />
             </button>
           )}
@@ -54,11 +71,13 @@ const PostItem = ({
 
 PostItem.propTypes = {
   post: PropTypes.object.isRequired,
-  auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
+  addLike: PropTypes.func.isRequired,
+  removeLike: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps, {})(PostItem);
+export default connect(mapStateToProps, { addLike, removeLike })(PostItem);
