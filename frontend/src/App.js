@@ -12,6 +12,7 @@ import AddExperience from './components/profile_forms/AddExperience';
 import PrivateRoute from './components/routing/PrivateRouter';
 import GetProfiles from './components/Profiles/Profiles';
 import Profile from './components/Profile/Profile';
+import Posts from './components/Posts/Posts';
 import './App.css';
 import { Provider } from 'react-redux';
 import store from './store';
@@ -62,6 +63,7 @@ const App = () => {
                 path='/add-experience'
                 component={AddExperience}
               />
+              <PrivateRoute exact path='/posts' component={Posts} />
             </Switch>
           </section>
         </Fragment>

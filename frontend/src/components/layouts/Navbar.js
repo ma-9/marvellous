@@ -13,6 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Techies from '@material-ui/icons/People';
 import IconButton from '@material-ui/core/IconButton';
+import PostIcon from '@material-ui/icons/Book';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -39,6 +40,12 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         <Button className={classes.whiteColor}>
           <Techies className={classes.whiteColor} />
           Techies
+        </Button>
+      </Link>
+      <Link to='/posts'>
+        <Button className={classes.whiteColor}>
+          <PostIcon className={classes.whiteColor} />
+          Posts
         </Button>
       </Link>
       <Link to='/dashboard'>
