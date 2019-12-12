@@ -3,7 +3,8 @@ import {
   POST_ERROR,
   UPDATE_LIKES,
   POST_DELETED,
-  ADD_POST
+  ADD_POST,
+  GET_POST
 } from '../actions/types';
 
 const initialState = {
@@ -21,6 +22,12 @@ export default function(state = initialState, actions) {
       return {
         ...state,
         posts: payload,
+        loading: false
+      };
+    case GET_POST:
+      return {
+        ...state,
+        post: payload,
         loading: false
       };
     case ADD_POST:

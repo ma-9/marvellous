@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -13,6 +13,7 @@ const PostItem = ({
   removeLike,
   deletePost,
   auth,
+  showAction,
   post: { _id, name, text, avatar, user, likes, comments, date }
 }) => {
   return (
@@ -32,43 +33,51 @@ const PostItem = ({
           id='PostActionButton'
           style={{ display: 'flex', justifyContent: 'flex-end' }}
         >
-          <button
-            style={{ display: 'flex', alignContent: 'center' }}
-            type='button'
-            className='btn btn-light'
-            onClick={() => addLike(_id)}
-          >
-            <ThumbUpIcon />
-            {likes.length > 0 && <span>{likes.length}</span>}
-          </button>
-          <button
-            style={{ display: 'flex', alignContent: 'center' }}
-            type='button'
-            className='btn btn-light'
-            onClick={() => removeLike(_id)}
-          >
-            <ThumbDownIcon />
-          </button>
-          <Link to={`/post/${_id}`} className='btn btn-primary'>
-            Discussion
-            {comments.length > 0 && (
-              <span className='comment-count'>{comments.length}</span>
-            )}
-          </Link>
-          {!auth.loading && user === auth.user._id && (
-            <button
-              onClick={(e) => deletePost(_id)}
-              style={{ display: 'flex', alignContent: 'center' }}
-              type='button'
-              className='btn btn-danger'
-            >
-              <CloseIcon />
-            </button>
+          {showAction && (
+            <Fragment>
+              <button
+                style={{ display: 'flex', alignContent: 'center' }}
+                type='button'
+                className='btn btn-light'
+                onClick={() => addLike(_id)}
+              >
+                <ThumbUpIcon />
+                {likes.length > 0 && <span>{likes.length}</span>}
+              </button>
+              <button
+                style={{ display: 'flex', alignContent: 'center' }}
+                type='button'
+                className='btn btn-light'
+                onClick={() => removeLike(_id)}
+              >
+                <ThumbDownIcon />
+              </button>
+              <Link to={`/posts/${_id}`} className='btn btn-primary'>
+                Discussion
+                {comments.length > 0 && (
+                  <span className='comment-count'>{comments.length}</span>
+                )}
+              </Link>
+              {!auth.loading && user === auth.user._id && (
+                <button
+                  onClick={(e) => deletePost(_id)}
+                  style={{ display: 'flex', alignContent: 'center' }}
+                  type='button'
+                  className='btn btn-danger'
+                >
+                  <CloseIcon />
+                </button>
+              )}
+            </Fragment>
           )}
         </div>
       </div>
     </div>
   );
+};
+
+PostItem.defaultProps = {
+  showAction: true
 };
 
 PostItem.propTypes = {
