@@ -27,7 +27,7 @@ app.use('/api/auth', require('./routes/api/auth'));
 // Serve Static assets in production
 if (process.env.NODE_ENV === 'production') {
   // Set Static Folder
-  app.use(express.static('../frontend/build'));
+  app.use(express.static('frontend/build'));
 
   app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
