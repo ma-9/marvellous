@@ -136,8 +136,17 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     <div>
       <AppBar position='fixed' className={classes.root}>
         <Toolbar>
-          <Link to='/' className={classes.title} style={{ display: 'flex' }}>
-            <DeveloperModeIcon />
+          <IconButton
+            edge='start'
+            className={classes.menuButton}
+            color='inherit'
+            aria-label='menu'
+          >
+            <Link to='/' className={classes.whiteColor}>
+              <DeveloperModeIcon />
+            </Link>
+          </IconButton>
+          <Link to='/' className={classes.title}>
             <Typography variant='h6'>Marvellous IN</Typography>
           </Link>
 
