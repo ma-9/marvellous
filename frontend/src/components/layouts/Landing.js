@@ -13,31 +13,33 @@ const Landing = ({ isAuthenticated }) => {
 
   return (
     <Fragment>
-      <Box component='div' className='dark-overlay'>
-        <Box component='div' className='landing-inner'>
-          <Typography variant='h2' gutterBottom>
-            Marvellous - A Blogging Platform
-          </Typography>
-          <Typography variant='h6' gutterBottom>
-            Create a developer profile, share blogs/posts and get help from
-            other developers
-          </Typography>
-          <Box component='div'>
-            <Link to='/register'>
-              <Button
-                variant='contained'
-                style={{
-                  backgroundColor: '#240b36',
-                  color: '#fff',
-                  marginRight: '20px'
-                }}
-              >
-                Sign Up
-              </Button>
-            </Link>
-            <Link to='/login'>
-              <Button variant='contained'>Sign In</Button>
-            </Link>
+      <Box component='div' className='landing'>
+        <Box component='div' className='dark-overlay'>
+          <Box component='div' className='landing-inner'>
+            <Typography variant='h2' gutterBottom>
+              Marvellous - A Blogging Platform
+            </Typography>
+            <Typography variant='h6' gutterBottom>
+              Create a developer profile, share blogs/posts and get help from
+              other developers
+            </Typography>
+            <Box component='div'>
+              <Link to='/register'>
+                <Button
+                  variant='contained'
+                  style={{
+                    backgroundColor: '#240b36',
+                    color: '#fff',
+                    marginRight: '20px'
+                  }}
+                >
+                  Sign Up
+                </Button>
+              </Link>
+              <Link to='/login'>
+                <Button variant='contained'>Sign In</Button>
+              </Link>
+            </Box>
           </Box>
         </Box>
       </Box>

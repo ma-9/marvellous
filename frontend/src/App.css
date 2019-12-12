@@ -232,18 +232,7 @@ img {
 
 /* Overlay */
 .dark-overlay {
-  /* background-color: rgba(0, 0, 0, 0.7); */
-  background: #b92b27; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #1565c0,
-    #b92b27
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #1565c0,
-    #b92b27
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-color: rgba(0, 0, 0, 0.7);
 
   position: absolute;
   top: 0;
@@ -351,6 +340,14 @@ button {
 
 .navbar .welcome span {
   margin-right: 0.6rem;
+}
+
+.landing {
+  position: relative;
+  background: url('./img/showcase.jpg') no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
 }
 
 /* Landing Page */
