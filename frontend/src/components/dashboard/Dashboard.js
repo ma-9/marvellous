@@ -9,12 +9,13 @@ import Experience from './Experience';
 import Education from './Education';
 import { deleteAccount } from '../../actions/profile';
 
-const Dashboard = ({
-  getCurrentProfile,
-  deleteAccount,
-  auth: { user },
-  profile: { profile, loading }
-}) => {
+const Dashboard = (props) => {
+  const {
+    getCurrentProfile,
+    deleteAccount,
+    auth: { user },
+    profile: { profile, loading }
+  } = props;
   useEffect(() => {
     getCurrentProfile();
   }, [getCurrentProfile]);

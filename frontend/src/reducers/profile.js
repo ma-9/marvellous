@@ -21,6 +21,7 @@ export default function(state = initialState, actions) {
   switch (type) {
     case GET_PROFILE:
     case UPDATE_PROFILE:
+      console.log('test', payload);
       return {
         ...state,
         profile: payload,
@@ -39,6 +40,7 @@ export default function(state = initialState, actions) {
         loading: false
       };
     case CLEAR_PROFILE:
+      console.log('test', payload);
       return {
         ...state,
         profile: null,
