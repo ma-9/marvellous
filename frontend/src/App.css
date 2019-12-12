@@ -344,7 +344,7 @@ button {
 
 .landing {
   position: relative;
-  background: url('./img/showcase.jpg') no-repeat;
+  background: linear-gradient(to right, #b92b27, #1565c0);
   background-size: cover;
   background-position: center;
   height: 100vh;
