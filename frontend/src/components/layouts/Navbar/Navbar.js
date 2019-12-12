@@ -134,7 +134,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 
   return (
     <div>
-      <AppBar position='sticky' className={classes.root}>
+      <AppBar position='fixed' className={classes.root}>
         <Toolbar>
           <IconButton
             edge='start'
