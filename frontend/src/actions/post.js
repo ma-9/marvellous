@@ -8,8 +8,7 @@ import {
   ADD_POST,
   GET_POST,
   ADD_COMMENT,
-  REMOVE_COMMENT,
-  REMOVE_ALERT
+  REMOVE_COMMENT
 } from './types';
 
 // Get Posts
@@ -168,12 +167,12 @@ export const addComment = (id, formdata) => async (dispatch) => {
 };
 
 // Remove Comment
-export const removeComment = (id, commentId) => async (dispatch) => {
+export const removeComment = (postId, commentId) => async (dispatch) => {
   try {
-    const res = await axios.delete(`/api/posts/comment/${id}/${commentId}`);
+    await axios.delete(`/api/posts/comment/${postId}/${commentId}`);
 
     dispatch({
-      type: REMOVE_ALERT,
+      type: REMOVE_COMMENT,
       payload: commentId
     });
     dispatch(setAlert('Comment Removed', true, 1500));

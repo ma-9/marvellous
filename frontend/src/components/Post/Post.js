@@ -7,14 +7,19 @@ import PostItem from '../Posts/PostItem';
 import { Link } from 'react-router-dom';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import CommentForm from './CommentForm';
+import CommentItem from './CommentItem';
 
 const Post = ({ getSinglePost, post: { post, loading }, match }) => {
   useEffect(() => {
     getSinglePost(match.params.id);
   }, [getSinglePost, match.params.id]);
-  return loading || post === null ? (
-    <Spinner />
-  ) : (
+  if (loading) {
+    return <Spinner />;
+  }
+  if (!loading && !post) {
+    return <p>Data Empty</p>;
+  }
+  return (
     <Fragment>
       <Link to='/posts' className='btn btn-dark'>
         <div style={{ display: 'flex' }}>
@@ -24,6 +29,11 @@ const Post = ({ getSinglePost, post: { post, loading }, match }) => {
       </Link>
       <PostItem post={post} showAction={false} />
       <CommentForm postId={post._id} />
+      <div className='comments'>
+        {post.comments.map((comment) => (
+          <CommentItem key={comment._id} comment={comment} postId={post._id} />
+        ))}
+      </div>
     </Fragment>
   );
 };

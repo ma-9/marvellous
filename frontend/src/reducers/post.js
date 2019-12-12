@@ -38,6 +38,12 @@ export default function(state = initialState, actions) {
         posts: [payload, ...state.posts],
         loading: false
       };
+    case ADD_COMMENT:
+      return {
+        ...state,
+        post: { ...payload },
+        loading: false
+      };
     case POST_ERROR:
       return {
         ...state,
@@ -58,18 +64,14 @@ export default function(state = initialState, actions) {
         posts: state.posts.filter((post) => post._id !== payload),
         loading: false
       };
-    case ADD_COMMENT:
-      return {
-        ...state,
-        post: { ...state.post, comments: payload },
-        loading: false
-      };
     case REMOVE_COMMENT:
       return {
         ...state,
         post: {
           ...state.post,
-          comments: state.comments.filter((comment) => comment._id !== payload)
+          comments: state.post.comments.filter(
+            (comment) => comment._id !== payload
+          )
         },
         loading: false
       };
