@@ -14,7 +14,6 @@ import {
 export const getCurrentProfile = () => async (dispatch) => {
   try {
     const res = await axios.get('/api/profile/me');
-    console.log('test', res.data);
     dispatch({
       type: GET_PROFILE,
       payload: res.data
@@ -32,7 +31,6 @@ export const getCurrentProfile = () => async (dispatch) => {
 
 // Get All Profiles
 export const getProfiles = () => async (dispatch) => {
-  dispatch({ type: CLEAR_PROFILE });
   try {
     const res = await axios.get('/api/profile');
     dispatch({
