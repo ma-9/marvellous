@@ -6,6 +6,7 @@ import { getSinglePost } from '../../actions/post';
 import PostItem from '../Posts/PostItem';
 import { Link } from 'react-router-dom';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import CommentForm from './CommentForm';
 
 const Post = ({ getSinglePost, post: { post, loading }, match }) => {
   useEffect(() => {
@@ -22,6 +23,7 @@ const Post = ({ getSinglePost, post: { post, loading }, match }) => {
         </div>
       </Link>
       <PostItem post={post} showAction={false} />
+      <CommentForm postId={post._id} />
     </Fragment>
   );
 };
