@@ -14,7 +14,7 @@ import Posts from '../Posts/Posts';
 import Post from '../Post/Post';
 import Alert from '../layouts/Alert';
 import NotFound from '../layouts/NotFound';
-import Landing from '../layouts/Landing';
+import Landing from '../layouts/LandingPage';
 
 const Routes = () => {
   return (
