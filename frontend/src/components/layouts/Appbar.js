@@ -5,8 +5,6 @@ import PropTypes from 'prop-types';
 import { logout } from '../../actions/auth';
 
 import Techies from '@material-ui/icons/People';
-
-import Landing from './Landing';
 import Routes from '../routing/Routes';
 
 // Import Dependencies regardig theme
@@ -89,10 +87,6 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'flex-end',
     padding: theme.spacing(0, 1),
     ...theme.mixins.toolbar
-  },
-  content: {
-    flexGrow: 1,
-    padding: theme.spacing(3)
   }
 }));
 
@@ -185,7 +179,9 @@ const AppDrawer = (props) => {
             <MenuIcon />
           </IconButton>
           <Typography variant='h6' noWrap>
-            Marvellous In
+            <Link style={{ color: '#fff' }} to='/'>
+              Marvellous In
+            </Link>
           </Typography>
         </Toolbar>
       </AppBar>
@@ -228,7 +224,6 @@ const AppDrawer = (props) => {
       </Drawer>
       <main>
         <Switch>
-          <Route exact path='/' component={Landing} />
           <Route component={Routes} />
         </Switch>
       </main>

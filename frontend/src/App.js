@@ -1,6 +1,5 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-// import Navbar from './components/layouts/Navbar/Navbar';
 import Navbar from './components/layouts/Appbar';
 import setAuthToken from './utils/setAuthToken';
 import './App.css';
@@ -20,9 +19,7 @@ const App = () => {
   return (
     <Provider store={store}>
       <Router>
-        <Fragment>
-          <Navbar />
-        </Fragment>
+        <Navbar />
       </Router>
     </Provider>
   );

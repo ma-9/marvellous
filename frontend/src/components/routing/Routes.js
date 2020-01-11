@@ -14,12 +14,14 @@ import Posts from '../Posts/Posts';
 import Post from '../Post/Post';
 import Alert from '../layouts/Alert';
 import NotFound from '../layouts/NotFound';
+import Landing from '../layouts/Landing';
 
 const Routes = () => {
   return (
     <section className='container'>
       <Alert />
       <Switch>
+        <Route exact path='/' component={Landing} />
         <Route exact path='/register' component={Register} />
         <Route exact path='/login' component={Login} />
         <Route exact path='/profiles' component={GetProfiles} />
