@@ -41,14 +41,14 @@ const Landing = ({ isAuthenticated }) => {
             <StyleRoot>
               <div style={AnimatedStyles.animate}>
                 <Grid container>
-                  <Grid item xs={12} sm={6}>
+                  <Grid item xs={6} sm={6}>
                     <Link to='/register'>
                       <Button variant='contained' color='primary'>
                         Register
                       </Button>
                     </Link>
                   </Grid>
-                  <Grid item xs={12} sm={6}>
+                  <Grid item xs={6} sm={6}>
                     <Link to='/login'>
                       <Button variant='contained' color='secondary'>
                         Login
